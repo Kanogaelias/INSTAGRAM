@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from .forms import NewImageForm, UpdatebioForm, ReviewForm
-# from .email import send_welcome_email
-# from .forms import NewsLetterForm
+from .email import send_welcome_email
+from .forms import NewsLetterForm
 
 # Views
 tags = tags.objects.all()
