@@ -68,7 +68,16 @@ def image(request, id):
 
 
 
-   
+ if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            comment = form.cleaned_data['comment']
+
+            review = Review()
+            review.image = image
+            review.user = current_user
+            review.comment = comment
+            review.save()   
 
     else:
         form = ReviewForm()
