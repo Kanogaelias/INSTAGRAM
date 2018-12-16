@@ -181,10 +181,10 @@ def individual_profile_page(request, username):
     profile = Profile.objects.get(user=user)
     userf = User.objects.get(pk=username)
     if userf:
-        print('user found')
+        print('found user')
         profile = Profile.objects.get(user=userf)
     else:
-        print('No suchuser')
+        print('No user f0und')
 
 
     return render (request, 'registration/user_image_list.html', {'images':images,
