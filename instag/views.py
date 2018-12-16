@@ -3,8 +3,8 @@ from .models import Image,Location,tags, Profile, Review, NewsLetterRecipients, 
 from django.http  import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-# from django.contrib.auth.models import User
-# from .forms import NewImageForm, UpdatebioForm, ReviewForm
+from django.contrib.auth.models import User
+from .forms import NewImageForm, UpdatebioForm, ReviewForm
 # from .email import send_welcome_email
 # from .forms import NewsLetterForm
 
