@@ -77,8 +77,6 @@ def image(request, id):
         form = ReviewForm()
 
 
-        # return HttpResponseRedirect(reverse('image', args=(image.id,)))
-
     return render(request, 'image.html', {"image": image,
                                           'form':form,
                                           'comments':comments,
@@ -168,7 +166,7 @@ def search_image(request):
             return render(request, 'search.html', {"message": message, "pictures": searched_images})
 
         else:
-            message = "You haven't searched for any image"
+            message = "Kindly search for image again"
             return render(request, 'search.html', {"message": message})
 
 
