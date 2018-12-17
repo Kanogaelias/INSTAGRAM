@@ -109,12 +109,12 @@ class Review(TestCase):
 
     def setUp(self):
 
-        self.melissa = User.objects.create(username="melissa")
+        self.elias = User.objects.create(username="elias")
         self.picture = Image.objects.create(image='image1',
-                                            user=self.melissa)
+                                            user=self.elias)
         self.comment = Review.objects.create(comment = 'nicephoto')
 
-        self.test_review = Review.objects.create(user=self.melissa,
+        self.test_review = Review.objects.create(user=self.elias,
                                                  image=self.picture,
                                                  comment='nice photo')
         self.test_review.save()

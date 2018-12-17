@@ -16,12 +16,15 @@
 <div class="card mb-3" style="width:40rem;;">
   <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap" class="img-fluid" size="100px200">
   <div class="card-body">
-    <button class="btn btn-lg btn-danger">Like Image</button>
+    <button class="btn btn-lg btn-danger">Like This Image</button>
 
 
 
 
-    <a href="#" onClick="document.getElementById('likebutton').submit()">Like Post</a> {{image.likes}}
+    <!--*****************-->
+    <!--TESTING LIKE BUTTON-->
+
+    <a href="#" onClick="document.getElementById('likebutton').submit()">Like This Post</a> {{image.likes}}
 
 <form id="likebutton" method="POST" action="/posts/{{image.id}}/preference/1/">
 {% csrf_token %}

@@ -61,8 +61,14 @@ def image(request, id):
     current_user = request.user
     comments = Review.get_comment(Review, id)
 
+    #
+    # p = Image.objects.get(image_id=id)
+    # onelike = Like.objects.get_or_create(user=request.user, image_id=id)
+    # likes = p.like_set.all().count()
 
- if request.method == 'POST':
+
+
+    if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             comment = form.cleaned_data['comment']
@@ -71,11 +77,13 @@ def image(request, id):
             review.image = image
             review.user = current_user
             review.comment = comment
-            review.save()   
+            review.save()
 
     else:
         form = ReviewForm()
 
+
+        # return HttpResponseRedirect(reverse('image', args=(image.id,)))
 
     return render(request, 'image.html', {"image": image,
                                           'form':form,
@@ -166,7 +174,7 @@ def search_image(request):
             return render(request, 'search.html', {"message": message, "pictures": searched_images})
 
         else:
-            message = "Kindly search for image again"
+            message = "You haven't searched for any image"
             return render(request, 'search.html', {"message": message})
 
 
@@ -181,10 +189,10 @@ def individual_profile_page(request, username):
     profile = Profile.objects.get(user=user)
     userf = User.objects.get(pk=username)
     if userf:
-        print('found user')
+        print('user found')
         profile = Profile.objects.get(user=userf)
     else:
-        print('No user f0und')
+        print('No suchuser')
 
 
     return render (request, 'registration/user_image_list.html', {'images':images,
